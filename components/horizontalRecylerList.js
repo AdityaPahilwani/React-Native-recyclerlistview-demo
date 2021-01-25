@@ -1,13 +1,13 @@
-import * as React from "react";
-import { View, StyleSheet, Dimensions } from "react-native";
+import * as React from 'react';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import {
   RecyclerListView,
   DataProvider,
   LayoutProvider,
-} from "recyclerlistview";
-import Constants from "expo-constants";
-import Card from "./card";
-import { LayoutUtil, ViewTypes } from "../utils/layoutUtil";
+} from 'recyclerlistview';
+import Constants from 'expo-constants';
+import Card from './card';
+import { LayoutUtil, ViewTypes } from '../utils/layoutUtil';
 
 export default function HorizontalRecylerList(props) {
   const { data } = props;
@@ -16,7 +16,7 @@ export default function HorizontalRecylerList(props) {
   });
   dataProvider = dataProvider.cloneWithRows(data);
 
-  let layoutProvider = LayoutUtil.getLayoutProvider(dataProvider, 0);
+  let layoutProvider = LayoutUtil.getLayoutProvider(dataProvider);
   const rowRenderer = (type, data) => {
     const { uri, title } = data;
     switch (type) {
@@ -45,9 +45,9 @@ export default function HorizontalRecylerList(props) {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    alignContent: "flex-start",
-    justifyContent: "flex-start",
+    alignContent: 'flex-start',
+    justifyContent: 'flex-start',
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#daeaf6",
+    backgroundColor: '#daeaf6',
   },
 });
